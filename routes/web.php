@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', 'PageController@posts' );
+Route::get('/', 'PageController@camaras' );
 Route::get('blog/{post}', 'PageController@post')->name('post');
+
+//CAMARAS
+//Route::get('/camara', 'PageController@camaras' );
+Route::get('blog/{camara}', 'PageController@camara')->name('camara');
 
 
 Auth::routes();
@@ -20,5 +24,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('posts', 'Backend\PostController')
+    ->middleware('auth')
+    ->except('show');
+
+Route::resource('camaras', 'Backend\CamaraController')
     ->middleware('auth')
     ->except('show');

@@ -2,7 +2,9 @@
 
 namespace App;
 
+
 use App\Post;
+use App\Camara;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,5 +44,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
-
+//CAMARAS
+    public function camaras()
+    {
+        return $this->hasMany(Camara::class);
+    }
 }

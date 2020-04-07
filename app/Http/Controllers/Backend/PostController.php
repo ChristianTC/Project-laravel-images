@@ -48,7 +48,8 @@ class PostController extends Controller
         
         //image
         if($request->file('file')){
-            $post->image = $request->file('file')->store('posts', 'public');
+            //Registro de imagenes en la carpeta con nomobre del numero de usuario
+            $post->image = $request->file('file')->store(auth()->user()->id, 'public');
             $post->save();
         }
 
