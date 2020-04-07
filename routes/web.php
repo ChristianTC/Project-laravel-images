@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', 'PageController@camaras' );
+Route::get('/', 'PageController@posts' );
 Route::get('blog/{post}', 'PageController@post')->name('post');
 
 //CAMARAS
-//Route::get('/camara', 'PageController@camaras' );
-Route::get('blog/{camara}', 'PageController@camara')->name('camara');
+Route::get('/camaralist', 'PageController@camaras' );
+Route::get('camara/{camara}', 'PageController@camara')->name('camara');
 
 
 Auth::routes();
